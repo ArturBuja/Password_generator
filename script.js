@@ -16,6 +16,21 @@ const randomFunc = {
 
 }
 
+clipboardEl.addEventListener('click', () =>{
+    const textarea = document.createElement('textarea');
+    const password = resultEl.innerText;
+    if (!password){
+        return
+    }
+
+    textarea.value = password
+    document.body.appendChild(textarea);
+    textarea.select()
+    document.execCommand('copy');
+    textarea.remove();
+    alert('Hasło zostało skopiowanie')
+})
+
 generateEl.addEventListener('click', () => {
     const hasLower = lowercaseEl.checked;
     const hasUpper = uppercaseEl.checked;
